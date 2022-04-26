@@ -21,9 +21,12 @@
     <div class="collapse navbar-collapse" id="navbarButtonsExample">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0"> </ul>
       <div class="d-flex align-items-center">
-        <a href="/<?php echo $_SESSION['type']; ?>/profile" class="btn-primary btn-sm px-3 me-2">
+        <?php if($_SERVER['REQUEST_URI'] != "/student/profile") {echo '<a href="/'.$_SESSION['type'].'/profile" class="btn-primary btn-sm px-3 me-2">
           Profile
-        </a>
+        </a>';} ?>
+        <?php if($_SERVER['REQUEST_URI'] != "/student/index") {echo '<a href="/'.$_SESSION['type'].'/index" class="btn-primary btn-sm px-3 me-2">
+          Home
+        </a>';} ?>
         <a href="../actions/logout.php" class="btn-danger btn-sm px-3 me-2">
           Sign Out
         </a>

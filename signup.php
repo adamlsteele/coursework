@@ -16,10 +16,11 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"/>
     <link rel="stylesheet" href="css/mdb.min.css" />
+    <link rel="stylesheet" href="../css/custom.css" />
 </head>
-
-<body class="bg-primary" style="--mdb-bg-opacity: 0.0.5">
-<section class="bg-primary">
+<div id="particles-js"></div>
+<body class="">
+<section class="">
   <div class="container py-5">
     <div class="row d-flex justify-content-center align-items-center h-200">
       <div class="col-12 col-md-8 col-lg-6 col-xl-5">
@@ -69,6 +70,8 @@
     </div>
   </div>
 </section>
+<script src="../particles.js"></script>
+<script src="../js/app.js"></script>
     <script type="text/javascript" src="js/mdb.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>

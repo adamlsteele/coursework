@@ -71,6 +71,7 @@
           <div class="card p-3">
             <h4>Your progress</h4>
             <canvas id="doughnutChart"></canvas>
+            <p>Question accuracy: <span class="badge badge-primary">99%</span></p>
           </div>
       </div>
 
