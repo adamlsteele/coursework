@@ -3,6 +3,7 @@
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
+
     //Grab session wide variables
     session_start();
     require("../require/connection.php");
@@ -16,4 +17,6 @@
 
     //Redirect user to the root page
     header("Location:/");
+
+    
 ?>

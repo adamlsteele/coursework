@@ -54,9 +54,9 @@
       </div>
       <div class="col-md-7 col-lg-8">
         <h4 class="mb-3">Your Profile</h4>
-        <form class="needs-validation" novalidate>
+        <form action="../actions/editProfile.php" method="POST">
           <div class="row g-3">
-
+            <?php if(isset($_GET['success'])) { echo '<div class="alert alert-success">'.$_GET['success'].'</div>';} ?>
             <div class="col-12">
               <label for="username" class="form-label">Username</label>
               <div class="input-group has-validation">
@@ -77,7 +77,7 @@
 
             <div class="col-12">
               <label for="confirmPassword" class="form-label">Confirm Password</label>
-              <input type="password" class="form-control" id="confirmPassword" name="confirmPassword">
+              <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" minlength="8">
             </div>
 
           <hr class="my-4">
