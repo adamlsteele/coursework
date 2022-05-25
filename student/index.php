@@ -22,6 +22,11 @@
       $teacherDetails = $query->fetch_assoc();
     }
 
+    $topics = $connection->query("SELECT * FROM Topic
+    INNER JOIN Teacher
+    ON Topic.AuthorID = Teacher.TeacherID");
+    
+
 
 ?>
 
@@ -47,7 +52,7 @@
         <?php if($row['ClassID'] == "") { echo'
           <div class="card mt-3 p-3">
             <h4>Class</h4>
-            <p class="alert alert-warning">You are not in a class. Join a class by entering a class code in your profile settings.</p>
+            <p class="alert alert-warning">You are not in a class. Join a class by clicking below.</p>
             <button type="button" class="btn btn-warning" data-mdb-toggle="modal" data-mdb-target="#addClassModal"#>Join Class</button>
           </div>
           ';
@@ -64,14 +69,16 @@
         <div class="card mt-3 p-3">
           <h4>Learn</h4>
           <p>Learn topics outside of a class-set assignment.</p>
-          <a class="btn btn-primary">Learn Topic</a>
+          <a class="btn btn-primary" data-mdb-toggle="modal" data-mdb-target="#learnModal">Learn Topic</a>
         </div>
       </div>
       <div class="col mr-5 p-3">
           <div class="card p-3">
             <h4>Your progress</h4>
             <canvas id="doughnutChart"></canvas>
-            <p>Question accuracy: <span class="badge badge-primary">99%</span></p>
+            <h4>Question accuracy: <span class="badge badge-primary"><?php if($row['Questions Answered'] != 0) {echo (($row['Questions Correct']/$row['Questions Answered'])*100)."%";}else{echo 0;} ?></span></h4>
+            <h4>Questions answered: <span class="badge badge-primary"><?php echo $row['Questions Answered'];?></span></h4>
+            <h4>Questions correct: <span class="badge badge-primary"><?php echo $row['Questions Correct'];?></span></h4>
           </div>
       </div>
 
@@ -90,6 +97,38 @@
             </div>
             <button class="btn btn-primary btn-block" type="submit">Add Class</button>
           </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="learnModal" tabindex="-1" aria-labelledby="learnModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addClassModalLabel">Learn</h5>
+          <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <input type="text" class="form-control" id="topicSearch" onkeyup="searchTopics()" placeholder="Search topic">
+          <table class="table">
+            <thead>
+              <th>Topic Name</th>
+              <th>Topic Description</th>
+              <th>Author</th>
+              <th>Learn</th>
+            </thead>
+            <tbody id="topicTable">
+              <?php 
+                foreach($topics as $topic) {
+                  echo "<tr><td>".$topic["Topic Name"]."</td>";
+                  echo "<td>".$topic["Topic Description"]."</td>";
+                  if($topic["AuthorID"] == 1) {echo '<td>Cloud Coding</br> <span class="badge badge-success">Approved Author</span></td>';} else {echo '<td>'.$topic["Username"].'</td>';}
+                  echo '<td><a class="btn btn-primary" href="/student/learn.php?id='.$topic["TopicID"].'" >Learn</a></td>';
+                }
+              ?>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -120,4 +159,25 @@
       responsive: true
     }
     });
+
+    function searchTopics() {
+      var td, i, textValue;
+      var input = document.getElementById("topicSearch");
+      var filter = input.value.toUpperCase();
+      var table = document.getElementById("topicTable");
+      var tr = table.getElementsByTagName("tr");
+
+      for(i = 0; i <= tr.length-1; i++) {
+        tr[i].style.display = "none";
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        } 
+      }
+    }
   </script>
