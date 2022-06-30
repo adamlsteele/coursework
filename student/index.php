@@ -111,6 +111,7 @@
         </div>
         <div class="modal-body">
         <input type="text" class="form-control" id="topicSearch" onkeyup="searchTopics()" placeholder="Search topic">
+        <p id="searchError"></p>
           <table class="table">
             <thead>
               <th>Topic Name</th>
@@ -181,7 +182,7 @@
           }
         }
         if (value === false) {
-          table.innerHTML = "No values could be found";
+          document.getElementById("searchError").innerHTML = "No values could be found";
         }
       }
     }
