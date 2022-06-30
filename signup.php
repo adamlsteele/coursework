@@ -55,7 +55,7 @@
                 <label class="form-check-label text-left" for="exampleRadios1">Student</label>
               </div>
               <div class="form-check">
-               <input class="form-check-input" type="radio" name="accountType" id="accountType2" value="teacher">
+               <input class="form-check-input" type="radio" name="accountType" id="accountType2" value="teacher" disabled>
                 <label class="form-check-label text-left" for="exampleRadios2">Teacher</label>
               </div>
               </br>
