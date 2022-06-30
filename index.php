@@ -33,7 +33,7 @@
                     <button class="nav-link active" id="pills-teacher-tab" data-bs-toggle="pill" data-bs-target="#pills-teacher" type="button" role="tab" aria-controls="pills-teacher" aria-selected="true">Student</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="pills-student-tab" data-bs-toggle="pill" data-bs-target="#pills-student" type="button" role="tab" aria-controls="pills-student" aria-selected="false">Teacher</button>
+                    <button class="nav-link" id="pills-student-tab" data-bs-toggle="pill" data-bs-target="#pills-student" type="button" role="tab" aria-controls="pills-student" aria-selected="false" disabled>Teacher</button>
                 </li>
             </ul>
             <?php if(isset($_GET['error'])) { echo '<p id="errorText" class="alert alert-danger">';}?><?php if(isset($_GET['error'])) {echo($_GET['error']);}?></p>
