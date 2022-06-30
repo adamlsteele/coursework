@@ -76,7 +76,7 @@
           <div class="card p-3">
             <h4>Your progress</h4>
             <canvas id="doughnutChart"></canvas>
-            <h4>Question accuracy: <span class="badge badge-primary"><?php if($row['Questions Answered'] != 0) {echo (($row['Questions Correct']/$row['Questions Answered'])*100)."%";}else{echo 0;} ?></span></h4>
+            <h4>Question accuracy: <span class="badge badge-primary"><?php if($row['Questions Answered'] != 0) {echo number_format(($row['Questions Correct']/$row['Questions Answered'])*100, 2, '.', ',')."%";}else{echo 0;} ?></span></h4>
             <h4>Questions answered: <span class="badge badge-primary"><?php echo $row['Questions Answered'];?></span></h4>
             <h4>Questions correct: <span class="badge badge-primary"><?php echo $row['Questions Correct'];?></span></h4>
           </div>
