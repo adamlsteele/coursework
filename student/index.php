@@ -183,6 +183,8 @@
         }
         if (value === false) {
           document.getElementById("searchError").innerHTML = "No values could be found";
+        }else {
+          document.getElementById("searchError").innerHTML = "";
         }
       }
     }
