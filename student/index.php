@@ -95,7 +95,7 @@
               <input  required type="text" name="code" id="typeCode-2" class="form-control form-control-lg" minlength=6 maxlength=6/>
               <label class="form-label" for="typeCode-2">Code</label>
             </div>
-            <button class="btn btn-primary btn-block" type="submit">Add Class</button>
+            <button class="btn btn-primary btn-block" type="submit">Join Class</button>
           </form>
         </div>
       </div>
