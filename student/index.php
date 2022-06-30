@@ -166,6 +166,7 @@
       var filter = input.value.toUpperCase();
       var table = document.getElementById("topicTable");
       var tr = table.getElementsByTagName("tr");
+      var value = false;
 
       for(i = 0; i <= tr.length-1; i++) {
         tr[i].style.display = "none";
@@ -174,10 +175,14 @@
           txtValue = td.textContent || td.innerText;
           if (txtValue.toUpperCase().indexOf(filter) > -1) {
             tr[i].style.display = "";
+            value = true;
           } else {
             tr[i].style.display = "none";
           }
-        } 
+        }
+        if (value === false) {
+          table.innerHTML = "No values could be found";
+        }
       }
     }
   </script>
