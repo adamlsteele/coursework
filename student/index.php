@@ -182,7 +182,7 @@
           }
         }
         if (value === false) {
-          document.getElementById("searchError").innerHTML = "No values could be found";
+          document.getElementById("searchError").innerHTML = "No topics could be found";
         }else {
           document.getElementById("searchError").innerHTML = "";
         }
