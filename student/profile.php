@@ -57,6 +57,7 @@
         <form action="../actions/editProfile.php" method="POST">
           <div class="row g-3">
             <?php if(isset($_GET['success'])) { echo '<div class="alert alert-success">'.$_GET['success'].'</div>';} ?>
+            <?php if(isset($_GET['error'])) { echo '<div class="alert alert-danger">'.$_GET['error'].'</div>';} ?>
             <div class="col-12">
               <label for="username" class="form-label">Username</label>
               <div class="input-group has-validation">
