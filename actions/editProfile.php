@@ -16,7 +16,6 @@
     if(isset($_POST['username'])) {$username = $_POST['username'];}
     echo($username. $password. $confirmPassword);
 
-
     if((isset($password) && isset($confirmPassword)) && $password != "") {
         if($password === $confirmPassword) {
             $hashPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -25,6 +24,8 @@
                 WHERE StudentID = '. $_SESSION['id'];
             $connection->query($query);
             header("Location: /student/profile?success=Profile password updated");
+        } else {
+            header("Location: /student/profile?error=The two passwords you entered do not match");
         }
     } else {
         $query = 'UPDATE Student
